@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <nav class="menu">
+            <a href="index.html">Cadastro</a>
+            <a href="ViewServlet">Listagem</a>
+            <a href="creditos.html">Creditos</a>
+        </nav>
+
+        <section class="hero">
+            <article class="hero-card">
+                <span class="eyebrow">Menu inicial</span>
+                <h1>CRUD completo para produtos.</h1>
+                <p class="hero-copy">
+                    Aplicacao com banco de dados em memoria para cadastrar, listar, editar e excluir produtos.
+                </p>
+                <div class="actions">
+                    <a href="#formulario" class="btn btn-primary">Novo produto</a>
+                    <a href="ViewServlet" class="btn btn-secondary">Ver tabela</a>
+                    <a href="creditos.html" class="btn btn-secondary">Creditos</a>
+                </div>
+            </article>
+
+            <aside class="hero-aside">
+                <div class="stat-card">
+                    <div class="stat-label">Entidade</div>
+                    <div class="stat-value">PRODUTOS</div>
+                    <p class="stat-note">Campos: id, nome, unidadeCompra, descricao, qtdPrevistoMes e precoMaxComprado.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Persistencia</div>
+                    <div class="stat-value">Memoria</div>
+                    <p class="stat-note">Os dados ficam guardados na classe ProdutoDao enquanto a aplicacao estiver ativa.</p>
+                </div>
+            </aside>
+        </section>
+
+        <section class="panel" id="formulario">
+            <div class="panel-header">
+                <div>
+                    <span class="eyebrow">Novo registro</span>
+                    <h2 class="panel-title">Cadastrar produto</h2>
+                </div>
+                <p>Preencha os dados abaixo para incluir um item na tabela de produtos.</p>
+            </div>
+
+            <form action="SaveServlet" method="post">
+                <div class="grid-2">
+                    <div class="field">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex.: Arroz tipo 1" required maxlength="80">
+                    </div>
+
+                    <div class="field">
+                        <label for="unidadeCompra">Unidade de compra</label>
+                        <input type="number" id="unidadeCompra" name="unidadeCompra" min="1" step="1" placeholder="Ex.: 10" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="qtdPrevistoMes">Qtd. previsto mes</label>
+                        <input type="number" id="qtdPrevistoMes" name="qtdPrevistoMes" min="0" step="0.01" placeholder="Ex.: 80.00" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="precoMaxComprado">Preco max. comprado</label>
+                        <input type="number" id="precoMaxComprado" name="precoMaxComprado" min="0" step="0.01" placeholder="Ex.: 28.90" required>
+                    </div>
+
+                    <div class="field full">
+                        <label for="descricao">Descricao</label>
+                        <textarea id="descricao" name="descricao" rows="4" placeholder="Detalhes do produto, embalagem ou observacoes de compra" required maxlength="240"></textarea>
+                    </div>
+
+                    <div class="field full">
+                        <span class="hint">A listagem aparece em formato de tabela e permite editar ou excluir cada registro.</span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Salvar produto</button>
+                    <a href="ViewServlet" class="btn btn-secondary">Ir para a listagem</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Projeto realizado por Matheus Correia de Franca e Davi Leite Coelho para a materia de Sistemas Web 1.
+    </footer>
+</body>
+</html>
