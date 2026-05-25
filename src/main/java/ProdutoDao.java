@@ -51,6 +51,10 @@ public class ProdutoDao {
         return copiar(produto);
     }
 
+    public static synchronized Produto findById(int id) {
+        return getProdutoById(id);
+    }
+
     public static synchronized List<Produto> getAllProdutos() {
         List<Produto> produtos = new ArrayList<Produto>();
         for (Produto produto : BANCO.values()) {

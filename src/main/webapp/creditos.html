@@ -3,44 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creditos</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#f7efe3">
+    <title>Creditos - Bookstore</title>
+    <link rel="stylesheet" href="style.css?v=tp03-premium-v2">
+    <script src="app.js?v=tp03-premium-v2" defer></script>
 </head>
 <body>
-    <main class="page">
-        <nav class="menu">
-            <a href="index.html">Cadastro</a>
-            <a href="ViewServlet">Listagem</a>
-            <a href="creditos.html">Creditos</a>
+    <header class="topbar">
+        <nav class="nav nav-shell" aria-label="Navegacao principal">
+            <a href="index.html" class="brand brand-link">
+                <span class="brand-mark" aria-hidden="true">B</span>
+                <span>Bookstore</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="new" class="nav-link">Add New Book</a>
+                <a href="list" class="nav-link">List All Books</a>
+                <a href="creditos.html" class="nav-link active" aria-current="page">Credits</a>
+            </div>
+            <button class="theme-toggle" type="button" aria-label="Alternar tema" data-theme-toggle>
+                <span aria-hidden="true">◐</span>
+            </button>
         </nav>
+    </header>
 
-        <section class="hero">
-            <article class="hero-card">
-                <span class="eyebrow">Creditos da dupla</span>
-                <h1>Trabalho Pratico 01.</h1>
-                <p class="hero-copy">Aplicacao CRUD de produtos com banco em memoria, desenvolvida para a disciplina de Sistemas Web 1.</p>
+    <main class="app-shell page-shell">
+        <section class="hero" aria-labelledby="credits-title">
+            <div class="hero-content">
+                <span class="eyebrow">Credits</span>
+                <h1 id="credits-title">Book Store Application.</h1>
+                <p class="hero-copy">CRUD de livros com Servlet, JDBC e MySQL, desenvolvido para a disciplina de Sistemas Web 1.</p>
                 <div class="actions">
-                    <a href="index.html" class="btn btn-primary">Voltar ao cadastro</a>
-                    <a href="ViewServlet" class="btn btn-secondary">Ver produtos</a>
+                    <a href="index.html" class="btn btn-primary">Voltar ao inicio</a>
+                    <a href="list" class="btn btn-secondary">Ver livros</a>
                 </div>
-            </article>
+            </div>
 
-            <aside class="hero-aside">
-                <div class="stat-card">
-                    <div class="stat-label">Disciplina</div>
-                    <div class="stat-value">CBTSWE1</div>
-                    <p class="stat-note">ADS 571 - Instituto Federal de Sao Paulo, Campus Cubatao.</p>
+            <aside class="hero-metrics" aria-label="Informacoes academicas">
+                <div class="metric-card accent">
+                    <span>Disciplina</span>
+                    <strong>CBTSWE1</strong>
+                    <small>ADS 571 - IFSP Campus Cubatao</small>
                 </div>
             </aside>
         </section>
 
-        <section class="panel">
-            <div class="panel-header">
+        <section class="catalog-panel" aria-labelledby="team-title">
+            <div class="section-header">
                 <div>
-                    <span class="eyebrow">Integrantes</span>
-                    <h2 class="panel-title">Dupla responsavel</h2>
+                    <span class="eyebrow">Team</span>
+                    <h2 id="team-title">Dupla responsavel</h2>
+                    <p>Pagina especifica de creditos, criada como diferencial solicitado no enunciado.</p>
                 </div>
-                <p>Pagina especifica de creditos, criada como diferencial solicitado no enunciado.</p>
             </div>
 
             <div class="credits-list">
@@ -57,7 +71,7 @@
     </main>
 
     <footer class="footer">
-        Professor Wellington Tuler Moraes - Trabalho Pratico 01 - CRUD de Produtos.
+        Professor Wellington Tuler Moraes - Trabalho Pratico 02 - CRUD de Livros.
     </footer>
 </body>
 </html>

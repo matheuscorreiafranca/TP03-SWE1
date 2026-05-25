@@ -3,91 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Produtos</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#f7efe3">
+    <title>Bookstore Dashboard</title>
+    <link rel="stylesheet" href="style.css?v=tp03-premium-v2">
+    <script src="app.js?v=tp03-premium-v2" defer></script>
 </head>
 <body>
-    <main class="page">
-        <nav class="menu">
-            <a href="index.html">Cadastro</a>
-            <a href="ViewServlet">Listagem</a>
-            <a href="creditos.html">Creditos</a>
+    <header class="topbar">
+        <nav class="nav nav-shell" aria-label="Navegacao principal">
+            <a href="index.html" class="brand brand-link" aria-current="page">
+                <span class="brand-mark" aria-hidden="true">B</span>
+                <span>Bookstore</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active" aria-current="page">Dashboard</a>
+                <a href="new" class="nav-link">Add New Book</a>
+                <a href="list" class="nav-link">List All Books</a>
+                <a href="creditos.html" class="nav-link">Credits</a>
+            </div>
+            <button class="theme-toggle" type="button" aria-label="Alternar tema" data-theme-toggle>
+                <span aria-hidden="true">◐</span>
+            </button>
         </nav>
+    </header>
 
-        <section class="hero">
-            <article class="hero-card">
-                <span class="eyebrow">Menu inicial</span>
-                <h1>CRUD completo para produtos.</h1>
+    <main class="app-shell page-shell">
+        <section class="hero" aria-labelledby="home-title">
+            <div class="hero-content">
+                <span class="eyebrow">Premium digital library</span>
+                <h1 id="home-title">Books Management</h1>
                 <p class="hero-copy">
-                    Aplicacao com banco de dados em memoria para cadastrar, listar, editar e excluir produtos.
+                    Uma livraria digital refinada para cadastrar, revisar e apresentar livros com Java Servlets, JDBC e MySQL.
                 </p>
                 <div class="actions">
-                    <a href="#formulario" class="btn btn-primary">Novo produto</a>
-                    <a href="ViewServlet" class="btn btn-secondary">Ver tabela</a>
-                    <a href="creditos.html" class="btn btn-secondary">Creditos</a>
+                    <a href="new" class="btn btn-primary">Add New Book</a>
+                    <a href="list" class="btn btn-secondary">Explore catalog</a>
                 </div>
-            </article>
+            </div>
 
-            <aside class="hero-aside">
-                <div class="stat-card">
-                    <div class="stat-label">Entidade</div>
-                    <div class="stat-value">PRODUTOS</div>
-                    <p class="stat-note">Campos: id, nome, unidadeCompra, descricao, qtdPrevistoMes e precoMaxComprado.</p>
+            <aside class="hero-metrics" aria-label="Resumo do sistema">
+                <div class="metric-card">
+                    <span>Entity</span>
+                    <strong>Book</strong>
+                    <small>book_id, title, author e price</small>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-label">Persistencia</div>
-                    <div class="stat-value">Memoria</div>
-                    <p class="stat-note">Os dados ficam guardados na classe ProdutoDao enquanto a aplicacao estiver ativa.</p>
+                <div class="metric-card accent">
+                    <span>Stack</span>
+                    <strong>JDBC</strong>
+                    <small>Tomcat conectado ao MySQL</small>
                 </div>
             </aside>
         </section>
 
-        <section class="panel" id="formulario">
-            <div class="panel-header">
+        <section class="catalog-panel" aria-labelledby="routes-title">
+            <div class="section-header">
                 <div>
-                    <span class="eyebrow">Novo registro</span>
-                    <h2 class="panel-title">Cadastrar produto</h2>
+                    <span class="eyebrow">Product flows</span>
+                    <h2 id="routes-title">CRUD com experiencia de produto</h2>
+                    <p>Rotas preservadas, interface repensada para parecer uma aplicacao real de catalogo editorial.</p>
                 </div>
-                <p>Preencha os dados abaixo para incluir um item na tabela de produtos.</p>
             </div>
 
-            <form action="SaveServlet" method="post">
-                <div class="grid-2">
-                    <div class="field">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome" placeholder="Ex.: Arroz tipo 1" required maxlength="80">
-                    </div>
-
-                    <div class="field">
-                        <label for="unidadeCompra">Unidade de compra</label>
-                        <input type="number" id="unidadeCompra" name="unidadeCompra" min="1" step="1" placeholder="Ex.: 10" required>
-                    </div>
-
-                    <div class="field">
-                        <label for="qtdPrevistoMes">Qtd. previsto mes</label>
-                        <input type="number" id="qtdPrevistoMes" name="qtdPrevistoMes" min="0" step="0.01" placeholder="Ex.: 80.00" required>
-                    </div>
-
-                    <div class="field">
-                        <label for="precoMaxComprado">Preco max. comprado</label>
-                        <input type="number" id="precoMaxComprado" name="precoMaxComprado" min="0" step="0.01" placeholder="Ex.: 28.90" required>
-                    </div>
-
-                    <div class="field full">
-                        <label for="descricao">Descricao</label>
-                        <textarea id="descricao" name="descricao" rows="4" placeholder="Detalhes do produto, embalagem ou observacoes de compra" required maxlength="240"></textarea>
-                    </div>
-
-                    <div class="field full">
-                        <span class="hint">A listagem aparece em formato de tabela e permite editar ou excluir cada registro.</span>
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">Salvar produto</button>
-                    <a href="ViewServlet" class="btn btn-secondary">Ir para a listagem</a>
-                </div>
-            </form>
+            <div class="detail-grid">
+                <article class="detail-card">
+                    <div class="detail-label">Create</div>
+                    <div class="detail-value">/new e /insert</div>
+                    <div class="detail-text">Fluxo de criacao com preview visual e campos guiados.</div>
+                </article>
+                <article class="detail-card">
+                    <div class="detail-label">Read</div>
+                    <div class="detail-value">/list</div>
+                    <div class="detail-text">Prateleira premium com busca e ordenacao local.</div>
+                </article>
+                <article class="detail-card">
+                    <div class="detail-label">Update</div>
+                    <div class="detail-value">/edit e /update</div>
+                    <div class="detail-text">Edicao objetiva sem quebrar parametros do backend.</div>
+                </article>
+                <article class="detail-card">
+                    <div class="detail-label">Delete</div>
+                    <div class="detail-value">/delete</div>
+                    <div class="detail-text">Acao destrutiva destacada com confirmacao nativa.</div>
+                </article>
+            </div>
         </section>
     </main>
 

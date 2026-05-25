@@ -12,6 +12,7 @@ import java.util.Locale;
 
 public class UiRenderer {
     private static final DecimalFormat DECIMAL = new DecimalFormat("0.00", DecimalFormatSymbols.getInstance(Locale.US));
+    private static final String ASSET_VERSION = "tp03-premium-v2";
 
     private UiRenderer() {
     }
@@ -22,8 +23,10 @@ public class UiRenderer {
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
         out.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+        out.println("<meta name='theme-color' content='#f7efe3'>");
         out.println("<title>" + escape(title) + "</title>");
-        out.println("<link rel='stylesheet' href='style.css'>");
+        out.println("<link rel='stylesheet' href='style.css?v=" + ASSET_VERSION + "'>");
+        out.println("<script src='app.js?v=" + ASSET_VERSION + "' defer></script>");
         out.println("</head>");
         out.println("<body>");
     }
@@ -49,9 +52,24 @@ public class UiRenderer {
         out.println("</main>");
     }
 
+    public static void printProdutoDetalhes(PrintWriter out, Produto produto) {
+        out.println("<section class='detail-grid'>");
+        out.println("<article class='detail-card'><div class='detail-label'>ID</div><div class='detail-value'>#" + produto.getId() + "</div></article>");
+        out.println("<article class='detail-card'><div class='detail-label'>Nome</div><div class='detail-value'>" + escape(produto.getNome()) + "</div></article>");
+        out.println("<article class='detail-card'><div class='detail-label'>Unidade de compra</div><div class='detail-value'>" + produto.getUnidadeCompra() + "</div></article>");
+        out.println("<article class='detail-card'><div class='detail-label'>Qtd. previsto mes</div><div class='detail-value'>" + format(produto.getQtdPrevistoMes()) + "</div></article>");
+        out.println("<article class='detail-card'><div class='detail-label'>Preco max. comprado</div><div class='detail-value'>R$ " + format(produto.getPrecoMaxComprado()) + "</div></article>");
+        out.println("<article class='detail-card'><div class='detail-label'>Descricao</div><div class='detail-text'>" + escape(produto.getDescricao()) + "</div></article>");
+        out.println("</section>");
+    }
+
     public static void printFooter(PrintWriter out) {
         out.println("<footer class='footer'>Projeto realizado por Matheus Correia de Franca e Davi Leite Coelho para a materia de Sistemas Web 1.</footer>");
         out.println("</body></html>");
+    }
+
+    public static void printDocumentEnd(PrintWriter out) {
+        printFooter(out);
     }
 
     public static String format(double value) {
